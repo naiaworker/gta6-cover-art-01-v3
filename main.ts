@@ -22,8 +22,13 @@ if (shots.length === 0) {
   process.exit(1);
 }
 
-rmSync(outDir, { recursive: true, force: true });
+// Clear the output directory's contents without removing the directory
+// itself: in the grader sandbox /output is a mount point the process
+// cannot delete (rmSync on it throws EPERM), so only its entries go.
 mkdirSync(outDir, { recursive: true });
+for (const entry of readdirSync(outDir)) {
+  rmSync(join(outDir, entry), { recursive: true, force: true });
+}
 
 cpSync(join(root, "app"), join(outDir, "app"), { recursive: true });
 cpSync(shotsDir, join(outDir, "screenshots"), { recursive: true });
