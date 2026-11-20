@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BISCAYNE Cover Studio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">B</span>
+    <span class="brand-text"><strong>BISCAYNE</strong><small>COVER STUDIO</small></span>
+  </div>
+  <div class="top-actions">
+    <div class="segmented" id="sizeControl" role="group" aria-label="Canvas size"></div>
+    <button type="button" id="exportBtn" class="primary">Export PNG</button>
+  </div>
+</header>
+
+<main class="workspace">
+  <aside class="rail">
+    <section>
+      <h2>Layout</h2>
+      <div class="btn-grid" id="layoutList"></div>
+    </section>
+    <section>
+      <h2>Grade</h2>
+      <select id="gradeSelect" aria-label="Colour grade"></select>
+      <h2>Treatment</h2>
+      <div class="btn-grid" id="treatmentList"></div>
+    </section>
+    <section>
+      <h2>Caption</h2>
+      <label class="field">Title
+        <input type="text" id="titleInput" maxlength="24" autocomplete="off">
+      </label>
+      <label class="field">Subtitle
+        <input type="text" id="subtitleInput" maxlength="42" autocomplete="off">
+      </label>
+    </section>
+    <section>
+      <h2>Panel photo</h2>
+      <p class="panel-label" id="panelLabel">Panel 1 of 3</p>
+      <label class="field">Zoom
+        <input type="range" id="zoomRange" min="1" max="2.2" step="0.01" value="1">
+      </label>
+      <label class="field">Shift across
+        <input type="range" id="panXRange" min="-0.3" max="0.3" step="0.005" value="0">
+      </label>
+      <label class="field">Shift down
+        <input type="range" id="panYRange" min="-0.3" max="0.3" step="0.005" value="0">
+      </label>
+      <button type="button" id="shuffleBtn">Rotate photos</button>
+    </section>
+  </aside>
+
+  <section class="stage-wrap">
+    <canvas id="stage" width="1080" height="1350"></canvas>
+    <p class="hint">Click a panel on the poster to select it, then pick a photo from the library.</p>
+  </section>
+
+  <aside class="photos">
+    <h2>Photo library</h2>
+    <div class="photo-strip" id="photoStrip"></div>
+    <label class="upload">Use your own photo
+      <input type="file" id="fileInput" accept="image/*" hidden>
+    </label>
+    <p class="fineprint">Sample photos by Pexels photographers — see CREDITS.md at the project root. The studio runs fully offline; nothing leaves this page.</p>
+  </aside>
+</main>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
