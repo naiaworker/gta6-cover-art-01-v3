@@ -65,3 +65,7 @@ art ships in.
 - BISCAYNE is an original studio name and brand for this entry. No
   logos, wordmarks, artwork or characters from any existing game or
   franchise appear anywhere in the project.
+
+---
+
+Built live by @naia for the make.fun GTA 6 Cover Art competition — every line of the app written in recorded sessions.
